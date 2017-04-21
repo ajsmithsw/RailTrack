@@ -8,7 +8,7 @@ namespace RailTrack
 		{
 			InitializeComponent();
 
-			MainPage = new RailTrackPage();
+			MainPage = new StationBoardPage();
 		}
 
 		protected override void OnStart()
