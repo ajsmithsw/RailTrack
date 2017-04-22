@@ -23,6 +23,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Pages\StationBoardPage.xaml.cs">
       <DependentUpon>StationBoardPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Station.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Operator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\TrainService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\DarwinApiClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />

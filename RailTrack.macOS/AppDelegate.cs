@@ -2,6 +2,7 @@
 using Foundation;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.MacOS;
+using System.Xml;
 
 namespace RailTrack.macOS
 {
@@ -16,7 +17,7 @@ namespace RailTrack.macOS
 		{
 			var style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
 
-			var rect = new CoreGraphics.CGRect(200, 1000, 1024, 768);
+			var rect = new CoreGraphics.CGRect(0, 0, 500, 300);
 			_window = new NSWindow(rect, style, NSBackingStore.Buffered, false);
 			_window.Title = "Xamarin.Forms on Mac!";
 			_window.TitleVisibility = NSWindowTitleVisibility.Hidden;
