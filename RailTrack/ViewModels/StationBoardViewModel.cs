@@ -1,10 +1,14 @@
 ﻿using System;
 using RailTrack.Utils.Darwin;
+using RailTrack.Utils.Stations;
 
 namespace RailTrack.ViewModels
 {
 	public class StationBoardViewModel : BaseViewModel
 	{
+		private Stations _allStations;
+
+
 		private string _testString = "Hello macOS!!!";
 		public string TestString 
 		{
@@ -14,9 +18,13 @@ namespace RailTrack.ViewModels
 
 		public StationBoardViewModel()
 		{
-			var result = new DarwinApiClient().GetData(RTRequestType.DEPARTURES, "DMK", 5, Constants.DarwinApiKey);
+			if (_allStations == null)
+			{
+				_allStations = new Stations();
+			}
 
-			Console.WriteLine(result);
+			//var result = new DarwinApiClient().GetData(RTRequestType.DEPARTURES, "DMK", 5, Constants.DarwinApiKey);
+
 		}
 	}
 }

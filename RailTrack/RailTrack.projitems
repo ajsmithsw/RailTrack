@@ -13,6 +13,7 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\StationBoardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)stationcodes.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -30,6 +31,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\DarwinApiClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\RTRequestType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\SoapXml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Stations\Stations.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\ResponseParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -38,5 +41,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Darwin\" />
     <Folder Include="$(MSBuildThisFileDirectory)Enums\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utils\Stations\" />
   </ItemGroup>
 </Project>
