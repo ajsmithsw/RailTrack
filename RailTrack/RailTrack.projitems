@@ -28,6 +28,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Operator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\TrainService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\DarwinApiClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\RTRequestType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\SoapXml.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -35,5 +37,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Pages\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Darwin\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Enums\" />
   </ItemGroup>
 </Project>
