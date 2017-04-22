@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace RailTrack.Models
+﻿namespace RailTrack.Models
 {
 	public class TrainService
 	{

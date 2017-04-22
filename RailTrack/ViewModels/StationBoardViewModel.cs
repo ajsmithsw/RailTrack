@@ -1,6 +1,7 @@
 ﻿using System;
+using RailTrack.Utils.Darwin;
 
-namespace RailTrack
+namespace RailTrack.ViewModels
 {
 	public class StationBoardViewModel : BaseViewModel
 	{

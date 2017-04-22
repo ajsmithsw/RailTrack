@@ -3,7 +3,7 @@ using System.IO;
 using System.Net;
 using System.Xml;
 
-namespace RailTrack
+namespace RailTrack.Utils.Darwin
 {
 	public class DarwinApiClient
 	{

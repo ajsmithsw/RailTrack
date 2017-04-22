@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
-namespace RailTrack
+
+namespace RailTrack.Utils.Darwin
 {
 	public static class SoapXml
 	{

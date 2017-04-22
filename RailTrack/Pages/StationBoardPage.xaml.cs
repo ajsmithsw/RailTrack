@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿using RailTrack.ViewModels;
 using Xamarin.Forms;
 
 namespace RailTrack
