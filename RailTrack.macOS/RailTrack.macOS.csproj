@@ -97,6 +97,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="MacFileManager.cs" />
   </ItemGroup>
   <Import Project="..\RailTrack\RailTrack.projitems" Label="Shared" Condition="Exists('..\RailTrack\RailTrack.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />

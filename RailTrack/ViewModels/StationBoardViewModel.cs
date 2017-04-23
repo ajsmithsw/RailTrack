@@ -23,7 +23,17 @@ namespace RailTrack.ViewModels
 				_allStations = new Stations();
 			}
 
-			//var result = new DarwinApiClient().GetData(RTRequestType.DEPARTURES, "DMK", 5, Constants.DarwinApiKey);
+			var result = new DarwinApiClient().GetData(RTRequestType.DEPARTURES, "DMK", 5, Constants.DarwinApiKey);
+
+			var parsedResult = new ResponseXmlParser().Parse(result);
+
+			var time = parsedResult.GeneratedAt.ToString(@"MM\/dd\/yyyy HH:mm");
+
+
+			Console.WriteLine(
+				"\nresult / Station name: {0}\nresult / Generated at: {1}\nresult / firstservice>operator: {2}",
+				parsedResult.Station.Name, parsedResult.GeneratedAt, parsedResult.Services[0].Operator.Name);
+
 
 		}
 	}

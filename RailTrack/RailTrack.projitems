@@ -33,6 +33,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\SoapXml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Stations\Stations.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\ResponseParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\ServicesResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Persistance\IFileManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -42,5 +44,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Darwin\" />
     <Folder Include="$(MSBuildThisFileDirectory)Enums\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Stations\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utils\Persistance\" />
   </ItemGroup>
 </Project>
