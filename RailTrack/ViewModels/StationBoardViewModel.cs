@@ -64,7 +64,7 @@ namespace RailTrack.ViewModels
 
 		void Update()
 		{
-			var response = client.GetData(RTRequestType.DEPARTURES, _station.CRS, 10, Constants.DarwinApiKey, "PMR");
+			var response = client.GetData(RTRequestType.DEPARTURES, _station.CRS, 5, Constants.DarwinApiKey, "PMR");
 			if (response != null)
 			{
 				Services = response.Services;
