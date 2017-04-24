@@ -59,7 +59,7 @@ namespace RailTrack.ViewModels
 		{
 			var service = new RefreshService();
 			service.OnRefresh += Update;
-			service.Begin(5);
+			service.Begin(5); // TODO - Change the interval time to a longer duration
 		}
 
 		void Update()
@@ -67,7 +67,7 @@ namespace RailTrack.ViewModels
 			var response = client.GetData(RTRequestType.DEPARTURES, _station.CRS, 5, Constants.DarwinApiKey, "PMR");
 			if (response != null)
 			{
-				Services = response.Services;
+				Services = new ObservableCollection<TrainService>(response.Services);
 				LastUpdated = string.Format("Last updated: {0}", response.GeneratedAt.ToString());
 			}
 			else

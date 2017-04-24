@@ -15,14 +15,14 @@ namespace RailTrack.Utils.Darwin
 
 		public bool PlatformAvailable { get; set; }
 
-		public ObservableCollection<TrainService> Services { get; set; }
+		public List<TrainService> Services { get; set; }
 
 		public ServicesResponse()
 		{
 			GeneratedAt = new DateTime(1970, 1, 1);
 			Station = new Station();
 			PlatformAvailable = true;
-			Services = new ObservableCollection<TrainService>();
+			Services = new List<TrainService>();
 		}
 	}
 
