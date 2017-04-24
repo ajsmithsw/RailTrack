@@ -28,7 +28,6 @@ namespace RailTrack.Utils.Darwin
 			manager.AddNamespace("lt5", "http://thalesgroup.com/RTTI/2016-02-16/ldb/types");
 
 			XmlNode body = doc.SelectSingleNode("soap:Envelope/soap:Body", manager);
-
 			XmlNode stationBoardResult = body.ChildNodes[0];
 
 			servicesResponse.GeneratedAt = DateTime.Parse(
@@ -66,9 +65,7 @@ namespace RailTrack.Utils.Darwin
 				service.Destination = destination;
 
 				service.ScheduledTime = node.SelectSingleNode("//lt2:std", manager).InnerText;
-
 				service.DelayStatus = node.SelectSingleNode("//lt2:etd", manager).InnerText;
-
 				service.Platform = int.Parse(node.SelectSingleNode("//lt2:platform", manager).InnerText);
 
 				var serviceOperator = new Operator();

@@ -32,9 +32,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Enums\RTRequestType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\SoapXml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Stations\Stations.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\ResponseParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\ResponseXmlParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\ServicesResponse.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Utils\Persistance\IFileManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Defaults.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Persistance\IDefaultsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />

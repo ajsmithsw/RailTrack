@@ -1,13 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using RailTrack.Models;
 using RailTrack.Utils.Darwin;
-using RailTrack.Utils.Stations;
 
 namespace RailTrack.ViewModels
 {
 	public class StationBoardViewModel : BaseViewModel
 	{
-		private Stations _allStations;
-
+		private List<Station> _allStations;
 
 		private string _testString = "Hello macOS!!!";
 		public string TestString 
@@ -16,25 +16,14 @@ namespace RailTrack.ViewModels
 			set { SetValue(ref _testString, value); }
 		}
 
-		public StationBoardViewModel()
+		public StationBoardViewModel(List<Station> allUkStations)
 		{
 			if (_allStations == null)
 			{
-				_allStations = new Stations();
+				_allStations = allUkStations;
 			}
 
-			var result = new DarwinApiClient().GetData(RTRequestType.DEPARTURES, "DMK", 5, Constants.DarwinApiKey);
-
-			var parsedResult = new ResponseXmlParser().Parse(result);
-
-			var time = parsedResult.GeneratedAt.ToString(@"MM\/dd\/yyyy HH:mm");
-
-
-			Console.WriteLine(
-				"\nresult / Station name: {0}\nresult / Generated at: {1}\nresult / firstservice>operator: {2}",
-				parsedResult.Station.Name, parsedResult.GeneratedAt, parsedResult.Services[0].Operator.Name);
-
-
+			//var _test_result = new DarwinApiClient().GetData(RTRequestType.DEPARTURES, "DMK", 5, Constants.DarwinApiKey);
 		}
 	}
 }

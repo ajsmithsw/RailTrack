@@ -10,7 +10,7 @@ namespace RailTrack.Utils.Darwin
 		private string _apiKey { get { return Constants.DarwinApiKey; } }
 		private string _apiEndpoint { get { return Constants.DarwinApiEndpoint; } }
 
-		public string GetData(RTRequestType type, string crs, int numRows, string token)
+		public ServicesResponse GetData(RTRequestType type, string crs, int numRows, string token)
 		{
 			try
 			{
@@ -30,7 +30,7 @@ namespace RailTrack.Utils.Darwin
 					using (StreamReader rd = new StreamReader(response.GetResponseStream()))
 					{
 						string soapResult = rd.ReadToEnd();
-						return soapResult;
+						return new ResponseXmlParser().Parse(soapResult);
 					}
 				}
 			}
@@ -39,8 +39,7 @@ namespace RailTrack.Utils.Darwin
 				Console.WriteLine(ex);
 			}
 
-			return "Did not get data";
-
+			return null;
 		}
 
 		public HttpWebRequest CreateWebRequest()

@@ -1,14 +1,21 @@
-﻿using Xamarin.Forms;
+﻿using System.Collections.Generic;
+using RailTrack.Models;
+using RailTrack.Utils.Stations;
+using Xamarin.Forms;
 
 namespace RailTrack
 {
 	public partial class App : Application
 	{
+		public List<Station> AllUkStations;
+
 		public App()
 		{
 			InitializeComponent();
 
-			MainPage = new StationBoardPage();
+			AllUkStations = new Stations().GetAll();
+
+			MainPage = new StationBoardPage(AllUkStations);
 		}
 
 		protected override void OnStart()
