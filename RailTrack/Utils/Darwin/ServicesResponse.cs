@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml;
 using RailTrack.Models;
+using System.Collections.ObjectModel;
 
 namespace RailTrack.Utils.Darwin
 {
@@ -14,14 +15,14 @@ namespace RailTrack.Utils.Darwin
 
 		public bool PlatformAvailable { get; set; }
 
-		public List<TrainService> Services { get; set; }
+		public ObservableCollection<TrainService> Services { get; set; }
 
 		public ServicesResponse()
 		{
 			GeneratedAt = new DateTime(1970, 1, 1);
 			Station = new Station();
 			PlatformAvailable = true;
-			Services = new List<TrainService>();
+			Services = new ObservableCollection<TrainService>();
 		}
 	}
 

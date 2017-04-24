@@ -4,6 +4,9 @@ using RailTrack.Models;
 using RailTrack.Utils.Persistance;
 using RailTrack.Utils.Stations;
 using RailTrack.Services;
+using System.Collections.ObjectModel;
+using System.Linq;
+using RailTrack.Utils.Darwin;
 
 namespace RailTrack.ViewModels
 {
@@ -11,37 +14,60 @@ namespace RailTrack.ViewModels
 	{
 		private List<Station> _allStations;
 		private Defaults _userDefaults;
+		private Station _station;
+		private string _lastUpdated;
+		private ObservableCollection<TrainService> _services;
 
-		private string _testString = "Hello macOS!!!";
-		public string TestString 
+		private DarwinApiClient client;
+
+		public string StationName
 		{
-			get { return _testString; }
-			set { SetValue(ref _testString, value); }
+			get 
+			{ 
+				return _station.Name; 
+			}
+			set 
+			{ 
+				_station = _allStations.Where(x => x.Name == value).FirstOrDefault();
+				OnPropertyChanged(StationName);
+			}
+		}
+
+		public string LastUpdated
+		{
+			get { return _lastUpdated; }
+			set { SetValue(ref _lastUpdated, value); }
+		}
+
+		public ObservableCollection<TrainService> Services
+		{
+			get { return _services; }
+			set { SetValue(ref _services, value); }
 		}
 
 		public StationBoardViewModel()
 		{
 			_allStations = new Stations().GetAll();
 			_userDefaults = new DefaultsManager().GetDefaults();
-			Console.WriteLine("Default station is {0}", _userDefaults.DefaultStationCRS);
-			//var _test_result = new DarwinApiClient().GetData(RTRequestType.DEPARTURES, "DMK", 5, Constants.DarwinApiKey);
+			_station = _allStations.Where(x => x.CRS == _userDefaults.DefaultStationCRS).FirstOrDefault();
+			LastUpdated = "offline";
+			Services = new ObservableCollection<TrainService>();
+			client = new DarwinApiClient();
+			InitializeUpdates();
+		}
 
+		void InitializeUpdates()
+		{
+			var service = new RefreshService();
+			service.OnRefresh += Update;
+			service.Begin(5);
+		}
 
-			int count = 0;
-			var test = new RefreshService();
-			test.OnRefresh += () => {
-				Console.WriteLine("Tick {0}", count);
-
-				TestString = string.Format("Refreshed {0} times.", count);
-
-				count++;
-				if (count >= 10)
-				{ 
-					test.Stop();
-				}
-			};
-			test.Begin(5);
-
+		void Update()
+		{
+			var response = client.GetData(RTRequestType.DEPARTURES, _station.CRS, 10, Constants.DarwinApiKey);
+			Services = response.Services;
+			LastUpdated = string.Format("Last updated:D {0}", response.GeneratedAt.ToString("U"));
 		}
 	}
 }
