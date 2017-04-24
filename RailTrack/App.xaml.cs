@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using RailTrack.Models;
-using RailTrack.Utils.Stations;
 using Xamarin.Forms;
 
 namespace RailTrack
@@ -13,9 +12,7 @@ namespace RailTrack
 		{
 			InitializeComponent();
 
-			AllUkStations = new Stations().GetAll();
-
-			MainPage = new StationBoardPage(AllUkStations);
+			MainPage = new StationBoardPage();
 		}
 
 		protected override void OnStart()

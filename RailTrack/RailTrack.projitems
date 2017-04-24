@@ -37,6 +37,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\Defaults.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Persistance\IDefaultsManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Persistance\DefaultsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\RefreshService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -47,5 +48,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Enums\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Stations\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Persistance\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
   </ItemGroup>
 </Project>

@@ -5,7 +5,7 @@ namespace RailTrack.Models
 	public class Defaults
 	{
 		[JsonProperty("station")]
-		public string DefaultStation { get; set; }
+		public string DefaultStationCRS { get; set; }
 
 		[JsonProperty("req_type")]
 		public string DefaultRequestType { get; set; }
