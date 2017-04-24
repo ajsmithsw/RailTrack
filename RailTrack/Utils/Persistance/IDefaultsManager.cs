@@ -5,10 +5,8 @@ namespace RailTrack.Utils.Persistance
 {
 	public interface IDefaultsManager
 	{
-		void Create(Defaults defaults);
+		void CreateOrUpdate(Defaults defaults);
 
 		Defaults GetDefaults();
-
-		void Update(Defaults defaults);
 	}
 }

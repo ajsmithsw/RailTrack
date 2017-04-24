@@ -88,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Utils\Persistance\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -97,6 +99,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Utils\Persistance\MacDefaultsManager.cs" />
   </ItemGroup>
   <Import Project="..\RailTrack\RailTrack.projitems" Label="Shared" Condition="Exists('..\RailTrack\RailTrack.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />

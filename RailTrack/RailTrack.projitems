@@ -36,6 +36,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Darwin\ServicesResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Defaults.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Persistance\IDefaultsManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Persistance\DefaultsManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
