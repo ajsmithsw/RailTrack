@@ -2,6 +2,7 @@
 
 using RailTrack.Models;
 using System;
+using System.Linq;
 
 namespace RailTrack.Utils.Darwin
 {
@@ -49,31 +50,31 @@ namespace RailTrack.Utils.Darwin
 				var service = new TrainService();
 
 				var origin = new Station();
-				XmlNode originNode = node.SelectSingleNode("//lt2:origin", manager);
-				origin.Name = originNode.SelectSingleNode("//lt2:location", manager)
-					.SelectSingleNode("//lt2:locationName", manager).InnerText;
-				origin.CRS = originNode.SelectSingleNode("//lt2:location", manager)
-					.SelectSingleNode("//lt2:crs", manager).InnerText;
+				XmlNode originNode = node.SelectSingleNode("lt2:origin", manager);
+				origin.Name = originNode.SelectSingleNode("lt2:location", manager)
+					.SelectSingleNode("lt2:locationName", manager).InnerText;
+				origin.CRS = originNode.SelectSingleNode("lt2:location", manager)
+					.SelectSingleNode("lt2:crs", manager).InnerText;
 				service.Origin = origin;
 
 				var destination = new Station();
-				XmlNode destinationNode = node.SelectSingleNode("//lt2:destination", manager);
-				destination.Name = destinationNode.SelectSingleNode("//lt2:location", manager)
-					.SelectSingleNode("//lt2:locationName", manager).InnerText;
-				destination.CRS = destinationNode.SelectSingleNode("//lt2:location", manager)
-					.SelectSingleNode("//lt2:crs", manager).InnerText;
+				XmlNode destinationNode = node.SelectSingleNode("lt2:destination", manager);
+				destination.Name = destinationNode.SelectSingleNode("lt2:location", manager)
+					.SelectSingleNode("lt2:locationName", manager).InnerText;
+				destination.CRS = destinationNode.SelectSingleNode("lt2:location", manager)
+					.SelectSingleNode("lt2:crs", manager).InnerText;
 				service.Destination = destination;
 
-				service.ScheduledTime = node.SelectSingleNode("//lt2:std", manager).InnerText;
-				service.DelayStatus = node.SelectSingleNode("//lt2:etd", manager).InnerText;
-				service.Platform = int.Parse(node.SelectSingleNode("//lt2:platform", manager).InnerText);
+				service.ScheduledTime = node.SelectSingleNode("lt2:std", manager).InnerText;
+				service.DelayStatus = node.SelectSingleNode("lt2:etd", manager).InnerText;
+				service.Platform = int.Parse(node.SelectSingleNode("lt2:platform", manager).InnerText);
 
 				var serviceOperator = new Operator();
-				serviceOperator.Name = node.SelectSingleNode("//lt2:operator", manager).InnerText;
-				serviceOperator.Code = node.SelectSingleNode("//lt2:operatorCode", manager).InnerText;
+				serviceOperator.Name = node.SelectSingleNode("lt2:operator", manager).InnerText;
+				serviceOperator.Code = node.SelectSingleNode("lt2:operatorCode", manager).InnerText;
 				service.Operator = serviceOperator;
 
-				service.ServiceID = node.SelectSingleNode("//lt2:serviceID", manager).InnerText;
+				service.ServiceID = node.SelectSingleNode("lt2:serviceID", manager).InnerText;
 
 				servicesResponse.Services.Add(service);
 			}

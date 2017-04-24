@@ -17,7 +17,7 @@ namespace RailTrack.macOS
 		{
 			var style = NSWindowStyle.Closable | NSWindowStyle.Resizable | NSWindowStyle.Titled;
 
-			var rect = new CoreGraphics.CGRect(300, 800, 500, 300);
+			var rect = new CoreGraphics.CGRect(0, 800, 350, 700);
 			_window = new NSWindow(rect, style, NSBackingStore.Buffered, false);
 			_window.Title = "Xamarin.Forms on Mac!";
 			_window.TitleVisibility = NSWindowTitleVisibility.Hidden;

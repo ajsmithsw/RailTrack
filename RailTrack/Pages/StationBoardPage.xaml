@@ -3,9 +3,15 @@
 	<StackLayout 
 		Orientation="Vertical"
 		Padding="20"
-		Spacing="20" >
-		<Label Text="{Binding StationName}" />
-		<Label Text="{Binding LastUpdated}" />
-
+		Spacing="4" >
+		<Label Text="{Binding StationName}" FontSize="22" FontAttributes="Bold" />
+		<Label Text="{Binding LastUpdated}" FontSize="14" />
+		<ListView ItemsSource="{Binding Services}" >
+			<ListView.ItemTemplate>
+     			<DataTemplate>
+					<TextCell Text="{Binding Details}" />
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
 	</StackLayout>
 </ContentPage>

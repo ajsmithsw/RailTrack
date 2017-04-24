@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using RailTrack.Models;
-using RailTrack.Utils.Persistance;
-using RailTrack.Utils.Stations;
-using RailTrack.Services;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using RailTrack.Models;
+using RailTrack.Services;
+using RailTrack.Utils.Persistance;
+using RailTrack.Utils.Stations;
 using RailTrack.Utils.Darwin;
+using System;
 
 namespace RailTrack.ViewModels
 {
@@ -17,8 +17,7 @@ namespace RailTrack.ViewModels
 		private Station _station;
 		private string _lastUpdated;
 		private ObservableCollection<TrainService> _services;
-
-		private DarwinApiClient client;
+		private readonly DarwinApiClient client;
 
 		public string StationName
 		{
@@ -65,9 +64,16 @@ namespace RailTrack.ViewModels
 
 		void Update()
 		{
-			var response = client.GetData(RTRequestType.DEPARTURES, _station.CRS, 10, Constants.DarwinApiKey);
-			Services = response.Services;
-			LastUpdated = string.Format("Last updated:D {0}", response.GeneratedAt.ToString("U"));
+			var response = client.GetData(RTRequestType.DEPARTURES, _station.CRS, 10, Constants.DarwinApiKey, "PMR");
+			if (response != null)
+			{
+				Services = response.Services;
+				LastUpdated = string.Format("Last updated: {0}", response.GeneratedAt.ToString());
+			}
+			else
+			{
+				LastUpdated = "Error updating departure board";
+			}
 		}
 	}
 }
