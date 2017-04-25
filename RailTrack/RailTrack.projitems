@@ -14,6 +14,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)stationcodes.json" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ChooseStationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
@@ -38,6 +41,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Persistance\IDefaultsManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\Persistance\DefaultsManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\RefreshService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Views\ChooseStationPage.xaml.cs">
+      <DependentUpon>ChooseStationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ChooseStationViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />

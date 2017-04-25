@@ -10,7 +10,7 @@ namespace RailTrack.Utils.Darwin
 		private string _apiKey { get { return Constants.DarwinApiKey; } }
 		private string _apiEndpoint { get { return Constants.DarwinApiEndpoint; } }
 
-		public ServicesResponse GetData(RTRequestType type, string crs, int numRows, string token, string filterCrs = null)
+		public ServicesResponse GetData(RTRequestType type, int numRows, string token, string fromStationCRS, string toStationCRS = null)
 		{
 			try
 			{
@@ -18,7 +18,7 @@ namespace RailTrack.Utils.Darwin
 
 				XmlDocument soapEnvelopeXml = new XmlDocument();
 
-				soapEnvelopeXml.LoadXml(SoapXml.Generate(type, crs, numRows, token, filterCrs));
+				soapEnvelopeXml.LoadXml(SoapXml.Generate(type, numRows, token, fromStationCRS, toStationCRS));
 
 				using (Stream stream = request.GetRequestStream())
 				{

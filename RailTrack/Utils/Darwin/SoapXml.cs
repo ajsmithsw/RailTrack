@@ -5,13 +5,13 @@ namespace RailTrack.Utils.Darwin
 {
 	public static class SoapXml
 	{
-		public static string Generate(RTRequestType type, string crs, int numRows, string token, string destinationCrs = null)
+		public static string Generate(RTRequestType type, int numRows, string token, string fromStationCRS, string toStationCRS = null)
 		{
 			string requestType = type == RTRequestType.DEPARTURES ? 
 			                                          "GetDepartureBoardRequest" : "GetArrivalBoardRequest";
 
-			var addDestination = destinationCrs != null ? 
-				string.Format("<ns1:filterCrs>{0}</ns1:filterCrs>", destinationCrs) 
+			var addDestination = toStationCRS != null ? 
+				string.Format("<ns1:filterCrs>{0}</ns1:filterCrs>", toStationCRS) 
 			          : "";
 
 			var xml = string.Format(@"<?xml version=""1.0""?>
@@ -29,7 +29,7 @@ namespace RailTrack.Utils.Darwin
 			      <ns1:crs>{3}</ns1:crs>{4}
 			    </ns1:{1}>
 			  </SOAP-ENV:Body>
-			</SOAP-ENV:Envelope>", token, requestType, numRows, crs, addDestination);
+			</SOAP-ENV:Envelope>", token, requestType, numRows, fromStationCRS, addDestination);
 
 			return xml;
 		}

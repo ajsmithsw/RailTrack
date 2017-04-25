@@ -5,8 +5,18 @@
 		Padding="20"
 		Spacing="4" >
 		<!-- add station edit fields here -->
-		<Label Text="{Binding Station.Name, StringFormat='from: {0:N}'}" FontSize="22" FontAttributes="Bold" />
-		<Label Text="{Binding Station.Name, StringFormat='				to:     {0:N}'}" FontSize="22" FontAttributes="Bold" />
+		<Grid ColumnSpacing="4" >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="30" />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Button Grid.Column="0" Text="Choose Station" FontSize="12" Command="{Binding ChooseStation}" BackgroundColor="Aqua" />
+			<Button Grid.Column="1" Text="Choose Destination" FontSize="12" Command="{Binding ChooseDestination}" BackgroundColor="Aqua" />
+		</Grid>
+		<Label Text="{Binding Station.Name}" FontSize="22" FontAttributes="Bold" />
 		<Label Text="{Binding LastUpdated}" FontSize="12" />
 		<ListView ItemsSource="{Binding Services}" >
 			<ListView.ItemTemplate>
