@@ -7,7 +7,6 @@ using RailTrack.Utils.Persistance;
 using RailTrack.Utils.Stations;
 using RailTrack.Utils.Darwin;
 using System.Windows.Input;
-using AppKit;
 using Xamarin.Forms;
 using RailTrack.Views;
 
