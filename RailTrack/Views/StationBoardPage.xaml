@@ -4,8 +4,10 @@
 		Orientation="Vertical"
 		Padding="20"
 		Spacing="4" >
-		<Label Text="{Binding StationName}" FontSize="22" FontAttributes="Bold" />
-		<Label Text="{Binding LastUpdated}" FontSize="14" />
+		<!-- add station edit fields here -->
+		<Label Text="{Binding Station.Name, StringFormat='from: {0:N}'}" FontSize="22" FontAttributes="Bold" />
+		<Label Text="{Binding Station.Name, StringFormat='				to:     {0:N}'}" FontSize="22" FontAttributes="Bold" />
+		<Label Text="{Binding LastUpdated}" FontSize="12" />
 		<ListView ItemsSource="{Binding Services}" >
 			<ListView.ItemTemplate>
      			<DataTemplate>

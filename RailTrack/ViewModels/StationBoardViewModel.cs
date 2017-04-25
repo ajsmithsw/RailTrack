@@ -15,34 +15,15 @@ namespace RailTrack.ViewModels
 		private List<Station> _allStations;
 		private Defaults _userDefaults;
 		private Station _station;
+		private Station _destination;
 		private string _lastUpdated;
 		private ObservableCollection<TrainService> _services;
 		private readonly DarwinApiClient client;
 
-		public string StationName
-		{
-			get 
-			{ 
-				return _station.Name; 
-			}
-			set 
-			{ 
-				_station = _allStations.Where(x => x.Name == value).FirstOrDefault();
-				OnPropertyChanged(StationName);
-			}
-		}
-
-		public string LastUpdated
-		{
-			get { return _lastUpdated; }
-			set { SetValue(ref _lastUpdated, value); }
-		}
-
-		public ObservableCollection<TrainService> Services
-		{
-			get { return _services; }
-			set { SetValue(ref _services, value); }
-		}
+		public List<Station> AllStations { get { return _allStations; } }
+		public Station Station { get { return _station; } set {  _station = value; SetValue(ref _station, value); } }
+		public string LastUpdated { get { return _lastUpdated; } set { SetValue(ref _lastUpdated, value); } }
+		public ObservableCollection<TrainService> Services { get { return _services; } set { SetValue(ref _services, value); } }
 
 		public StationBoardViewModel()
 		{

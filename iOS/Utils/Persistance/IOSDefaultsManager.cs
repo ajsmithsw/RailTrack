@@ -17,7 +17,12 @@ namespace RailTrack.iOS.Utils.Persistance
 
 		public Defaults GetDefaults()
 		{
-			throw new NotImplementedException();
+			return new Defaults()
+			{
+				DefaultStationCRS = "DMK",
+				DefaultRequestType = "DEPARTURES",
+				DefaultResultsCount = 10
+			};
 		}
 	}
 }

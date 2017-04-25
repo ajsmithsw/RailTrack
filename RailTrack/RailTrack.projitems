@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Pages\StationBoardPage.xaml">
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\StationBoardPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)stationcodes.json" />
@@ -21,7 +21,7 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\StationBoardViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Pages\StationBoardPage.xaml.cs">
+    <Compile Include="$(MSBuildThisFileDirectory)Views\StationBoardPage.xaml.cs">
       <DependentUpon>StationBoardPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
@@ -42,7 +42,7 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
     <Folder Include="$(MSBuildThisFileDirectory)ViewModels\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Pages\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Views\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Darwin\" />
     <Folder Include="$(MSBuildThisFileDirectory)Enums\" />
