@@ -129,7 +129,7 @@ namespace RailTrack.ViewModels
 			if (response != null)
 			{
 				Services = new ObservableCollection<TrainService>(response.Services);
-				LastUpdated = string.Format("Updated: {0}", response.GeneratedAt.ToString("D"));
+				LastUpdated = string.Format("Updated: {0}", response.GeneratedAt.ToString("HH:mm:ss"));
 			}
 			else
 			{

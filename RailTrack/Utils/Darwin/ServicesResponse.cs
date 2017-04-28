@@ -6,7 +6,6 @@ using System.Collections.ObjectModel;
 
 namespace RailTrack.Utils.Darwin
 {
-
 	public class ServicesResponse
 	{
 		public DateTime GeneratedAt { get; set; }
@@ -25,5 +24,4 @@ namespace RailTrack.Utils.Darwin
 			Services = new List<TrainService>();
 		}
 	}
-
 }

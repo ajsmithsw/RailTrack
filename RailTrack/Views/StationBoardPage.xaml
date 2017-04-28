@@ -12,8 +12,8 @@
 				<ColumnDefinition Width="*" />
 				<ColumnDefinition Width="*" />
 			</Grid.ColumnDefinitions>
-			<Button Grid.Column="0" Text="Choose Station" FontSize="12" Command="{Binding ChooseStation}" BackgroundColor="Aqua" />
-			<Button Grid.Column="1" Text="Choose Destination" FontSize="12" Command="{Binding ChooseDestination}" BackgroundColor="Aqua" />
+			<Button Grid.Column="0" Text="Choose Station" FontSize="12" Command="{Binding ChooseStation}" BackgroundColor="Transparent" />
+			<Button Grid.Column="1" Text="Choose Destination" FontSize="12" Command="{Binding ChooseDestination}" BackgroundColor="Transparent" />
 		</Grid>
 		<Label Text="{Binding Station.Name}" FontSize="22" FontAttributes="Bold" />
 		<Label Text="{Binding Destination.Name, StringFormat='to {0:N}'}" FontSize="18" FontAttributes="Bold" />
@@ -21,7 +21,13 @@
 		<ListView ItemsSource="{Binding Services}">
 			<ListView.ItemTemplate>
      			<DataTemplate>
-					<TextCell Text="{Binding Details}" />
+					<ViewCell>
+						<StackLayout Orientation="Horizontal" VerticalOptions="Center">
+							<Label Text="{Binding ScheduledTime}" Margin="2" />
+							<Label Text="{Binding Destination.Name}" HorizontalOptions="StartAndExpand" Margin="2" FontAttributes="Bold" />
+							<Label Text="{Binding DelayStatus}" Margin="2" />
+						</StackLayout>
+					</ViewCell>
 				</DataTemplate>
 			</ListView.ItemTemplate>
 		</ListView>

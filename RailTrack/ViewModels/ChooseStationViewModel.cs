@@ -35,8 +35,12 @@ namespace RailTrack.ViewModels
 				{
 					FoundStations = new ObservableCollection<Station> (
 						_allStations.Where(
-							x => (x.Name.Length >= _searchInput.Length
-							      && x.Name.Substring(0, _searchInput.Length).ToLower() == _searchInput.ToLower())));
+							x => ((x.Name.Length >= _searchInput.Length
+							       && x.Name.Substring(0, _searchInput.Length).ToLower() == _searchInput.ToLower()) 
+							      || (x.CRS.Length >= _searchInput.Length
+							       && x.CRS.Substring(0, _searchInput.Length).ToLower() == _searchInput.ToLower()) 
+							     )
+						));
 				}
 			}
 		}
