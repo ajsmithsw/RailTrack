@@ -67,7 +67,7 @@ namespace RailTrack.Utils.Darwin
 
 				service.ScheduledTime = node.SelectSingleNode("lt2:std", manager).InnerText;
 				service.DelayStatus = node.SelectSingleNode("lt2:etd", manager).InnerText;
-				service.Platform = int.Parse(node.SelectSingleNode("lt2:platform", manager).InnerText);
+				//service.Platform = int.Parse(node.SelectSingleNode("lt2:platform", manager).InnerText);
 
 				var serviceOperator = new Operator();
 				serviceOperator.Name = node.SelectSingleNode("lt2:operator", manager).InnerText;

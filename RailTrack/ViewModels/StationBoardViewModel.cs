@@ -114,11 +114,11 @@ namespace RailTrack.ViewModels
 
 			if (_destination == null)
 			{
-				response = _client.GetData(RTRequestType.DEPARTURES, 5, Constants.DarwinApiKey, Station.CRS);
+				response = _client.GetData(RTRequestType.DEPARTURES, 10, Constants.DarwinApiKey, Station.CRS);
 			}
 			else
 			{
-				response = _client.GetData(RTRequestType.DEPARTURES, 5, Constants.DarwinApiKey, Station.CRS, Destination.CRS);
+				response = _client.GetData(RTRequestType.DEPARTURES, 10, Constants.DarwinApiKey, Station.CRS, Destination.CRS);
 			}
 
 			UpdateUI(response);
@@ -129,7 +129,7 @@ namespace RailTrack.ViewModels
 			if (response != null)
 			{
 				Services = new ObservableCollection<TrainService>(response.Services);
-				LastUpdated = string.Format("Last updated: {0}", response.GeneratedAt.ToString());
+				LastUpdated = string.Format("Updated: {0}", response.GeneratedAt.ToString("D"));
 			}
 			else
 			{

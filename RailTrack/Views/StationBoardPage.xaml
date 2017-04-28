@@ -4,10 +4,9 @@
 		Orientation="Vertical"
 		Padding="20"
 		Spacing="4" >
-		<!-- add station edit fields here -->
 		<Grid ColumnSpacing="4" >
 			<Grid.RowDefinitions>
-				<RowDefinition Height="30" />
+				<RowDefinition Height="50" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="*" />
@@ -17,8 +16,9 @@
 			<Button Grid.Column="1" Text="Choose Destination" FontSize="12" Command="{Binding ChooseDestination}" BackgroundColor="Aqua" />
 		</Grid>
 		<Label Text="{Binding Station.Name}" FontSize="22" FontAttributes="Bold" />
+		<Label Text="{Binding Destination.Name, StringFormat='to {0:N}'}" FontSize="18" FontAttributes="Bold" />
 		<Label Text="{Binding LastUpdated}" FontSize="12" />
-		<ListView ItemsSource="{Binding Services}" >
+		<ListView ItemsSource="{Binding Services}">
 			<ListView.ItemTemplate>
      			<DataTemplate>
 					<TextCell Text="{Binding Details}" />
