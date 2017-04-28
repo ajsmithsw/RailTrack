@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RailTrack.Views.ChooseStationPage">
 	<StackLayout Orientation="Vertical" Padding="20" Spacing="4" >
-		<SearchBar />
-		<ListView />
+		<SearchBar Text="{Binding SearchInput}" />
+		<ListView ItemsSource="{Binding FoundStations}" SelectedItem="{Binding SelectedStation, Mode=TwoWay}">
+			<ListView.ItemTemplate>
+     			<DataTemplate>
+					<TextCell Text="{Binding Name}" Detail="{Binding CRS}" />
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
 	</StackLayout>
 </ContentPage>

@@ -45,6 +45,7 @@
       <DependentUpon>ChooseStationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ChooseStationViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Events\Events.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Models\" />
@@ -56,5 +57,6 @@
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Stations\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utils\Persistance\" />
     <Folder Include="$(MSBuildThisFileDirectory)Services\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Events\" />
   </ItemGroup>
 </Project>

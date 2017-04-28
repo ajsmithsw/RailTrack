@@ -9,75 +9,48 @@ using RailTrack.Utils.Darwin;
 using System.Windows.Input;
 using Xamarin.Forms;
 using RailTrack.Views;
+using RailTrack.Events;
 
 namespace RailTrack.ViewModels
 {
 	public class StationBoardViewModel : BaseViewModel
 	{
-		private List<Station> _allStations;
+		
 		private Defaults _userDefaults;
-		private Station _station;
-		private Station _destination;
-		private string _lastUpdated;
-		private ObservableCollection<TrainService> _services;
 		private readonly DarwinApiClient _client;
 
+		private List<Station> _allStations;
 		public List<Station> AllStations
 		{
-			get
-			{
-				return _allStations;
-			}
+			get { return _allStations; }
 		}
 
+		private Station _station;
 		public Station Station
 		{
-			get
-			{
-				return _station;
-			}
-			set
-			{
-				_station = value;
-				SetValue(ref _station, value);
-			}
+			get { return _station; }
+			set { SetValue(ref _station, value); }
 		}
 
+		private Station _destination;
 		public Station Destination
 		{
-			get
-			{
-				return _destination;
-			}
-			set
-			{
-				_destination = value;
-				SetValue(ref _destination, value);
-			}
+			get { return _destination; }
+			set { SetValue(ref _destination, value); }
 		}
 
+		private string _lastUpdated;
 		public string LastUpdated
 		{
-			get
-			{
-				return _lastUpdated;
-			}
-			set
-			{
-				SetValue(ref _lastUpdated, value);
-			}
+			get { return _lastUpdated; }
+			set { SetValue(ref _lastUpdated, value); }
 		}
 
+		private ObservableCollection<TrainService> _services;
 		public ObservableCollection<TrainService> Services
 		{
-			get
-			{
-				return _services;
-			}
-			set
-			{
-				SetValue(ref _services, value);
-			}
+			get { return _services; }
+			set { SetValue(ref _services, value); }
 		}
 
 		public ICommand ChooseStation
@@ -86,7 +59,7 @@ namespace RailTrack.ViewModels
 			{
 				return new Command(() => 
 				{
-					var page = new ChooseStationPage(UpdateStation);
+					var page = new ChooseStationPage(AllStations, UpdateStation);
 					Application.Current.MainPage.Navigation.PushAsync(page);
 				});
 			}
@@ -98,7 +71,7 @@ namespace RailTrack.ViewModels
 			{
 				return new Command(() =>
 				{
-					var page = new ChooseStationPage(UpdateDestination);
+					var page = new ChooseStationPage(AllStations, UpdateDestination);
 					Application.Current.MainPage.Navigation.PushAsync(page);
 				});
 			}
@@ -141,11 +114,11 @@ namespace RailTrack.ViewModels
 
 			if (_destination == null)
 			{
-				response = _client.GetData(RTRequestType.DEPARTURES, 5, Constants.DarwinApiKey, _station.CRS);
+				response = _client.GetData(RTRequestType.DEPARTURES, 5, Constants.DarwinApiKey, Station.CRS);
 			}
 			else
 			{
-				response = _client.GetData(RTRequestType.DEPARTURES, 5, Constants.DarwinApiKey, _station.CRS, _destination.CRS);
+				response = _client.GetData(RTRequestType.DEPARTURES, 5, Constants.DarwinApiKey, Station.CRS, Destination.CRS);
 			}
 
 			UpdateUI(response);
