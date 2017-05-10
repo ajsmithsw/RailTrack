@@ -42,7 +42,7 @@ namespace RailTrack.Utils.Darwin
 			return null;
 		}
 
-		private HttpWebRequest CreateWebRequest()
+		HttpWebRequest CreateWebRequest()
 		{
 			HttpWebRequest webRequest = (HttpWebRequest)WebRequest.Create(_apiEndpoint);
 			webRequest.Headers.Add(@"SOAP:Action");
