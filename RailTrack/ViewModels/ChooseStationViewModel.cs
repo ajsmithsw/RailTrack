@@ -12,6 +12,8 @@ namespace RailTrack.ViewModels
 	public class ChooseStationViewModel : BaseViewModel
 	{
 		public StationSelectedEvent OnStationSelected;
+		public bool another;
+		public static string text = "";
 
 		private ObservableCollection<Station> _allStations;
 
