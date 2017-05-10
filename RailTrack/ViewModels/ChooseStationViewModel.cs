@@ -12,13 +12,9 @@ namespace RailTrack.ViewModels
 	public class ChooseStationViewModel : BaseViewModel
 	{
 		public StationSelectedEvent OnStationSelected;
-		public bool mctestbool;
-		public bool another;
-		public static string text = "";
-
 		private ObservableCollection<Station> _allStations;
-
 		private ObservableCollection<Station> _foundStations;
+
 		public ObservableCollection<Station> FoundStations 
 		{
 			get { return _foundStations; }
