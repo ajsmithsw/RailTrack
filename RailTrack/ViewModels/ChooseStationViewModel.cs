@@ -12,7 +12,10 @@ namespace RailTrack.ViewModels
 	public class ChooseStationViewModel : BaseViewModel
 	{
 		public StationSelectedEvent OnStationSelected;
+<<<<<<< HEAD
 		public bool mctestbool;
+=======
+>>>>>>> 34599eb3b2588b4692981e6ad1b0a96fb9751fd9
 		public bool another;
 		public static string text = "";
 
