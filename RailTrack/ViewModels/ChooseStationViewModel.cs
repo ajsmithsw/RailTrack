@@ -13,6 +13,8 @@ namespace RailTrack.ViewModels
 	{
 		public StationSelectedEvent OnStationSelected;
 		public bool mctestbool;
+		public bool another;
+		public static string text = "";
 
 		private ObservableCollection<Station> _allStations;
 
